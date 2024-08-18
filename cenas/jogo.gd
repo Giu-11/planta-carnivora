@@ -9,6 +9,8 @@ extends Node2D
 
 @onready var PlatasTotal = 2
 
+signal comeu
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -26,5 +28,16 @@ func _on_jogador_andou():
 
 
 func _on_jogador_alimenta(planta):
-	pass
+	if not get_node(planta.get_path()).get("comeu"):
+		print("n comi")
 
+		var p = load(str(planta.get_path()))
+		var nome = planta.name
+		
+		print(nome)
+		print(get_node(NodePath(str(nome))))
+		#planta.comeu
+		get_node(NodePath(str(nome))).connect("comeu", get_node(NodePath(str(nome))).comi)
+		#get_node(planta).get("comeu") = true
+		comeu.emit()
+		print("1")

@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @onready var animacao = $AnimationPlayer
 @onready var tilemap = $"../TileMap"
+@onready var comeu: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -38,3 +39,8 @@ func _ready():
 			animacao.play("idle_e")
 		else:
 			animacao.play("idle_d")
+
+
+func comi():
+	comeu = true
+	print("foi")

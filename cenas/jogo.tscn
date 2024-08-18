@@ -49,7 +49,7 @@ layer_1/tile_data = PackedInt32Array(0, 65536, 4, 1, 65536, 4, 2, 65536, 4, 3, 6
 metadata/_edit_lock_ = true
 
 [node name="jogador" parent="." instance=ExtResource("1_p3dhk")]
-position = Vector2(168, 86)
+position = Vector2(168, 102)
 
 [node name="Camera2D2" type="Camera2D" parent="jogador"]
 zoom = Vector2(6, 6)
@@ -72,5 +72,6 @@ position = Vector2(24, 72)
 [node name="planta2" parent="." instance=ExtResource("5_56cj5")]
 position = Vector2(88, 56)
 
+[connection signal="comeu" from="." to="planta" method="_on_jogo_comeu"]
 [connection signal="alimenta" from="jogador" to="." method="_on_jogador_alimenta"]
 [connection signal="andou" from="jogador" to="." method="_on_jogador_andou"]

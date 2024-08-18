@@ -2,12 +2,13 @@ extends CharacterBody2D
 
 @onready var animationtree = $AnimationTree
 @onready var tilemap = $"../TileMap"
+@onready var raycast = $RayCast2D
 
-@onready var comcomida: bool = false
+@onready var comcomida: bool = true
 @onready var andando: bool = false
 
 signal andou
-signal alimenta
+signal alimenta(quem)
 
 
 func _ready():
@@ -38,6 +39,18 @@ func _physics_process(_delta):
 		return
 	
 	update_animation(direcao)
+	andou.emit()
+	
+	raycast.target_position = direcao * 16
+	raycast.force_raycast_update()
+	
+	if raycast.is_colliding() and comcomida:
+		var quem = raycast.get_collider()
+		alimenta.emit(quem)
+		
+		
+		#print("planta??")
+		return
 	
 	# confirma se o tile existe (camada 0)
 	if tilemap.get_cell_source_id(0, posicao_destino) == -1:
@@ -55,6 +68,7 @@ func _physics_process(_delta):
 			
 			if tile_data.get_custom_data("comida"):
 				comcomida = true
+				print("comida!!")
 				
 			elif tile_data.get_custom_data("planta"):
 				alimenta.emit()
@@ -64,8 +78,6 @@ func _physics_process(_delta):
 	
 	andando = true
 	global_position = tilemap.map_to_local(posicao_destino)
-	andou.emit()
-	
 	andando = false
 	
 
