@@ -3,11 +3,18 @@ extends CharacterBody2D
 @onready var animationtree = $AnimationTree
 @onready var tilemap = $"../TileMap"
 
+@onready var comcomida: bool = false
+@onready var andando: bool = false
+
+signal andou
+signal alimenta
+
 
 func _ready():
 	update_animation(Vector2(0, 1))
 
 func _physics_process(_delta):
+	# pega a dirção do movimento
 	var posicao_atual: Vector2i = tilemap.local_to_map(global_position)
 	
 	var direcao = Vector2.ZERO
@@ -25,6 +32,11 @@ func _physics_process(_delta):
 		posicao_atual.y + direcao.y,
 	)
 	
+	if andando:
+		return
+	if direcao == Vector2.ZERO:
+		return
+	
 	update_animation(direcao)
 	
 	# confirma se o tile existe (camada 0)
@@ -38,11 +50,23 @@ func _physics_process(_delta):
 	
 	if tilemap.get_cell_source_id(1, posicao_destino) != -1:
 		tile_data = tilemap.get_cell_tile_data(1, posicao_destino)
+		
 		if tile_data.get_custom_data("n_anda"):
-			return	
-	
+			
+			if tile_data.get_custom_data("comida"):
+				comcomida = true
+				
+			elif tile_data.get_custom_data("planta"):
+				alimenta.emit()
+				
+			return
 
+	
+	andando = true
 	global_position = tilemap.map_to_local(posicao_destino)
+	andou.emit()
+	
+	andando = false
 	
 
 func update_animation(direcao: Vector2):

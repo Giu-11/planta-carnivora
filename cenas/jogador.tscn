@@ -153,3 +153,16 @@ libraries = {
 tree_root = SubResource("AnimationNodeStateMachine_41n85")
 anim_player = NodePath("../AnimationPlayer")
 parameters/idle/blend_position = Vector2(-0.00319999, -0.00582004)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(6, 6)
+limit_left = 0
+limit_top = 0
+limit_right = 192
+limit_bottom = 128
+limit_smoothed = true
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true
+editor_draw_limits = true
+editor_draw_drag_margin = true
+metadata/_edit_lock_ = true
