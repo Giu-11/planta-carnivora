@@ -6,10 +6,11 @@ extends Node2D
 @onready var plata_al: int = 0
 
 @onready var tagpassos = "Ui/conatapassos"
+@onready var tagplantas = "Ui/plantascomeram"
 
 @onready var PlatasTotal = 2
 
-signal comeu
+signal comeu(onde)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -23,11 +24,11 @@ func _process(delta):
 
 func _on_jogador_andou():
 	passos += 1
-	get_node(tagpassos).text = "passos: " + str(passos) + "\nplantas alimentadas:" + str(plata_al)
+	get_node(tagpassos).text = "passos: " + str(passos)
 	
 
 
-func _on_jogador_alimenta(planta):
+func _on_jogador_alimenta(planta, onde):
 	if not get_node(planta.get_path()).get("comeu"):
 		print("n comi")
 
@@ -36,8 +37,12 @@ func _on_jogador_alimenta(planta):
 		
 		print(nome)
 		print(get_node(NodePath(str(nome))))
+		#"\nplantas alimentadas:" + str(plata_al)
 		#planta.comeu
-		get_node(NodePath(str(nome))).connect("comeu", get_node(NodePath(str(nome))).comi)
+		#get_node(NodePath(str(nome))).connect("comeu", get_node(NodePath(str(nome))).comi)
 		#get_node(planta).get("comeu") = true
-		comeu.emit()
-		print("1")
+		comeu.emit(onde)
+		plata_al+=1
+		print("miau\n")
+		get_node(tagplantas).text = "plantas alimentadas:" + str(plata_al)
+		

@@ -4,11 +4,11 @@ extends CharacterBody2D
 @onready var tilemap = $"../TileMap"
 @onready var raycast = $RayCast2D
 
-@onready var comcomida: bool = true
+@onready var comcomida: bool = false
 @onready var andando: bool = false
 
 signal andou
-signal alimenta(quem)
+signal alimenta(quem, onde)
 
 
 func _ready():
@@ -46,7 +46,7 @@ func _physics_process(_delta):
 	
 	if raycast.is_colliding() and comcomida:
 		var quem = raycast.get_collider()
-		alimenta.emit(quem)
+		alimenta.emit(quem, posicao_destino)
 		
 		
 		#print("planta??")

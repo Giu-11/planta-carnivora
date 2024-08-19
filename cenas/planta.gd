@@ -41,6 +41,10 @@ func _ready():
 			animacao.play("idle_d")
 
 
-func comi():
-	comeu = true
-	print("foi")
+func _on_jogo_comeu(onde):
+	var posicao_atual: Vector2i = tilemap.local_to_map(global_position)
+	if onde == posicao_atual:
+		print("foi eu!")
+		if not comeu:
+			print("delicia")
+			comeu = true
