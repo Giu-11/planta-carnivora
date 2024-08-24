@@ -7,7 +7,7 @@ extends Node2D
 @onready var plata_al: int = 0
 
 const total_plantas = 1
-const lim_passos = 13
+const lim_passos = 56
 
 signal comeu(onde)
 

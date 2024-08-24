@@ -28,6 +28,19 @@ position = Vector2(152, 88)
 [node name="jogador" parent="." instance=ExtResource("4_3iyt4")]
 position = Vector2(24, 40)
 
+[node name="Camera2D3" type="Camera2D" parent="jogador"]
+zoom = Vector2(6, 6)
+limit_left = 0
+limit_top = 0
+limit_right = 192
+limit_bottom = 128
+limit_smoothed = true
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true
+editor_draw_limits = true
+editor_draw_drag_margin = true
+metadata/_edit_lock_ = true
+
 [connection signal="comeu" from="." to="planta" method="_on_jogo_comeu"]
 [connection signal="alimenta" from="jogador" to="." method="_on_jogador_alimenta"]
 [connection signal="andou" from="jogador" to="." method="_on_jogador_andou"]
