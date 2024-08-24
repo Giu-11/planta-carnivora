@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var tilemap = $"../TileMap"
 @onready var comeu: bool = false
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	

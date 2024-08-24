@@ -1,14 +1,13 @@
 extends Node2D
 
-@onready var tilemap = $TileMap
-
+@onready var tagpassos = "Ui/conatapassos"
+@onready var tagplantas = "Ui/plantascomeram"
+@onready var tilemap = self.get_parent().get_node("TileMap")
 @onready var passos: int = 0
 @onready var plata_al: int = 0
 
-@onready var tagpassos = "Ui/conatapassos"
-@onready var tagplantas = "Ui/plantascomeram"
-
-@onready var PlatasTotal = 2
+const total_plantas = 1
+const lim_passos = 25
 
 signal comeu(onde)
 
@@ -23,8 +22,13 @@ func _process(delta):
 
 
 func _on_jogador_andou():
-	passos += 1
-	get_node(tagpassos).text = "passos: " + str(passos)
+	print(passos)
+	if passos < lim_passos:
+		passos += 1
+		get_node(tagpassos).text = "passos: " + str(passos)
+	else:
+		print("\npo vey, vc perdeu :(\n")
+		#aqui vc coloca a tela d perdeu
 	
 
 
@@ -37,12 +41,11 @@ func _on_jogador_alimenta(planta, onde):
 		
 		print(nome)
 		print(get_node(NodePath(str(nome))))
-		#"\nplantas alimentadas:" + str(plata_al)
-		#planta.comeu
-		#get_node(NodePath(str(nome))).connect("comeu", get_node(NodePath(str(nome))).comi)
-		#get_node(planta).get("comeu") = true
 		comeu.emit(onde)
 		plata_al+=1
 		print("miau\n")
 		get_node(tagplantas).text = "plantas alimentadas:" + str(plata_al)
 		
+		if plata_al == total_plantas:
+			print("ganhou mano :)")
+			#aqui vc coloca a tela de ganhou

@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://cpgggsaiuj0c5"]
 
-[ext_resource type="Script" path="res://cenas/jogador.gd" id="1_3ruq5"]
+[ext_resource type="Script" path="res://cenas/scripts/jogador.gd" id="1_yo4r8"]
 [ext_resource type="Texture2D" uid="uid://cjprrd67p722h" path="res://assets/idle.png" id="2_jr7w2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c4qc7"]
@@ -132,7 +132,7 @@ states/idle/position = Vector2(336, 100)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_l1vvw")]
 
 [node name="jogador" type="CharacterBody2D"]
-script = ExtResource("1_3ruq5")
+script = ExtResource("1_yo4r8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_jr7w2")
@@ -169,5 +169,18 @@ metadata/_edit_lock_ = true
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(0, 16)
+
+[node name="Camera2D2" type="Camera2D" parent="."]
+zoom = Vector2(6, 6)
+limit_left = 0
+limit_top = 0
+limit_right = 192
+limit_bottom = 128
+limit_smoothed = true
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true
+editor_draw_limits = true
+editor_draw_drag_margin = true
+metadata/_edit_lock_ = true
 
 [connection signal="andou" from="." to="." method="_on_andou"]

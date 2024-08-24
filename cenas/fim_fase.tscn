@@ -1,0 +1,74 @@
+[gd_scene load_steps=4 format=3 uid="uid://bahbjpbf3yhte"]
+
+[ext_resource type="Texture2D" uid="uid://y85mpxdddpr" path="res://assets/icons_ui/casinha.png" id="1_qeh23"]
+[ext_resource type="Texture2D" uid="uid://c78b3i152em0u" path="res://assets/icons_ui/botao.png" id="2_862so"]
+[ext_resource type="Texture2D" uid="uid://bbe1steh5rv3k" path="res://assets/icons_ui/botaoc.png" id="3_8kqn1"]
+
+[node name="fim_fase" type="ColorRect"]
+custom_minimum_size = Vector2(750, 500)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.732587, 0.413616, 0.615052, 1)
+metadata/_edit_lock_ = true
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 13.0
+offset_right = 53.0
+offset_bottom = 53.0
+icon = ExtResource("1_qeh23")
+flat = true
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+custom_minimum_size = Vector2(450, 270)
+layout_mode = 2
+alignment = 1
+
+[node name="resultado" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "sla, vc ganhou?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 20)
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+alignment = 1
+
+[node name="Button" type="TextureButton" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(125, 50)
+layout_mode = 2
+texture_normal = ExtResource("2_862so")
+texture_pressed = ExtResource("3_8kqn1")
+texture_hover = ExtResource("3_8kqn1")
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+
+[node name="Button2" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(125, 45)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "botão 1"

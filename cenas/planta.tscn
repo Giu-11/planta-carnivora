@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://cff2s0wqagfun"]
 
+[ext_resource type="Script" path="res://cenas/scripts/planta.gd" id="1_en37f"]
 [ext_resource type="Texture2D" uid="uid://bdv1swdhlsg4c" path="res://assets/planta_carnivora.png" id="1_hx86y"]
-[ext_resource type="Script" path="res://cenas/planta.gd" id="1_q7rei"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ucp6"]
 size = Vector2(16, 16)
@@ -61,7 +61,7 @@ _data = {
 }
 
 [node name="planta" type="CharacterBody2D"]
-script = ExtResource("1_q7rei")
+script = ExtResource("1_en37f")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_hx86y")

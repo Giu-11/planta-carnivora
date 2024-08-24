@@ -3,7 +3,6 @@ extends CharacterBody2D
 @onready var animationtree = $AnimationTree
 @onready var tilemap = $"../TileMap"
 @onready var raycast = $RayCast2D
-
 @onready var comcomida: bool = false
 @onready var andando: bool = false
 
