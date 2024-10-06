@@ -43,13 +43,15 @@ func _physics_process(_delta):
 	raycast.target_position = direcao * 16
 	raycast.force_raycast_update()
 	
-	if raycast.is_colliding() and comcomida:
-		var quem = raycast.get_collider()
-		alimenta.emit(quem, posicao_destino)
-		
-		
-		#print("planta??")
+	if raycast.is_colliding():
+		if comcomida:
+			var quem = raycast.get_collider()
+			alimenta.emit(quem, posicao_destino)
+			#print("planta??")
+		else:
+			print("tem q pegar comida vey")
 		return
+		
 	
 	# confirma se o tile existe (camada 0)
 	if tilemap.get_cell_source_id(0, posicao_destino) == -1:

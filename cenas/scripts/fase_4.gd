@@ -1,34 +1,27 @@
 extends Node2D
 
-@onready var tagpassos = "Ui/conatapassos"
+@onready var tagpassos = "Ui/timer"
 @onready var tagplantas = "Ui/plantascomeram"
 @onready var tilemap = self.get_parent().get_node("TileMap")
 @onready var passos: int = 0
 @onready var plata_al: int = 0
 
-const total_plantas = 1
-const lim_passos = 100
+const total_plantas = 2
 
 signal comeu(onde)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	if not $Ui.visible:
+		$Ui.show()
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	get_node(tagpassos).text = "%s" % roundf($Timer.time_left)
 	pass
 
-
-func _on_jogador_andou():
-	print(passos)
-	if passos < lim_passos:
-		passos += 1
-		get_node(tagpassos).text = "passos: " + str(passos)
-	else:
-		print("\npo vey, vc perdeu :(\n")
-		#aqui vc coloca a tela d perdeu
 	
 
 
@@ -49,3 +42,8 @@ func _on_jogador_alimenta(planta, onde):
 		if plata_al == total_plantas:
 			print("ganhou mano :)")
 			#aqui vc coloca a tela de ganhou
+
+
+func _on_timer_timeout():
+	print("perdeu mano")
+	pass # Replace with function body.

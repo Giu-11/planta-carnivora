@@ -9,6 +9,11 @@
 [node name="fase1" type="Node2D"]
 script = ExtResource("1_bkc05")
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 30.0
+one_shot = true
+autostart = true
+
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_6212w")
 format = 2
@@ -27,6 +32,7 @@ metadata/_edit_lock_ = true
 position = Vector2(152, 88)
 
 [node name="Ui" parent="." instance=ExtResource("3_hlxe1")]
+visible = false
 
 [node name="jogador" parent="." instance=ExtResource("4_3iyt4")]
 position = Vector2(24, 40)
@@ -45,5 +51,6 @@ editor_draw_drag_margin = true
 metadata/_edit_lock_ = true
 
 [connection signal="comeu" from="." to="planta" method="_on_jogo_comeu"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="alimenta" from="jogador" to="." method="_on_jogador_alimenta"]
 [connection signal="andou" from="jogador" to="." method="_on_jogador_andou"]

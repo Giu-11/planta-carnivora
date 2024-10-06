@@ -9,6 +9,11 @@
 [node name="fase3" type="Node2D"]
 script = ExtResource("1_c62au")
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 30.0
+one_shot = true
+autostart = true
+
 [node name="jogador" parent="." instance=ExtResource("1_vj15v")]
 position = Vector2(24, 56)
 
@@ -46,5 +51,6 @@ layer_2/tile_data = PackedInt32Array(262146, 0, 3, 262147, 65536, 3, 589829, 0, 
 metadata/_edit_lock_ = true
 
 [connection signal="comeu" from="." to="planta" method="_on_jogo_comeu"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="alimenta" from="jogador" to="." method="_on_jogador_alimenta"]
 [connection signal="andou" from="jogador" to="." method="_on_jogador_andou"]
