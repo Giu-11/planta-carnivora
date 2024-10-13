@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://dq0xxvv3ui1o1"]
+[gd_scene load_steps=2 format=3 uid="uid://dq0xxvv3ui1o1"]
+
+[ext_resource type="FontFile" uid="uid://br4qd7xyktkom" path="res://assets/fonts/PixelifySans-Regular.ttf" id="1_7kxup"]
 
 [node name="Ui" type="CanvasLayer"]
 
@@ -6,15 +8,14 @@
 offset_left = 3.0
 offset_top = 3.0
 offset_right = 261.0
-offset_bottom = 76.0
+offset_bottom = 118.0
 color = Color(0.21, 0.1848, 0.1848, 1)
-metadata/_edit_lock_ = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = 8.0
 offset_top = 8.0
 offset_right = 256.0
-offset_bottom = 68.0
+offset_bottom = 113.0
 color = Color(0.78, 0.74464, 0.6552, 1)
 metadata/_edit_lock_ = true
 
@@ -23,7 +24,9 @@ offset_left = 16.0
 offset_top = 16.0
 offset_right = 240.0
 offset_bottom = 39.0
-theme_override_colors/font_color = Color(0.299712, 0.000330394, 0.38881, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_7kxup")
+theme_override_font_sizes/font_size = 17
 text = "Contagem de passos vai aqui"
 
 [node name="plantascomeram" type="Label" parent="."]
@@ -32,4 +35,26 @@ offset_top = 42.0
 offset_right = 249.0
 offset_bottom = 65.0
 theme_override_colors/font_color = Color(0.299712, 0.000330394, 0.38881, 1)
-text = "Plantas que comeram vai aqui"
+theme_override_fonts/font = ExtResource("1_7kxup")
+theme_override_font_sizes/font_size = 17
+text = "Plantas alimentadas: 0"
+
+[node name="totalplatas" type="Label" parent="."]
+offset_left = 15.0
+offset_top = 65.0
+offset_right = 257.0
+offset_bottom = 88.0
+theme_override_colors/font_color = Color(0.299712, 0.000330394, 0.38881, 1)
+theme_override_fonts/font = ExtResource("1_7kxup")
+theme_override_font_sizes/font_size = 17
+text = "Total de plantas: ?"
+
+[node name="comcomida" type="Label" parent="."]
+offset_left = 15.0
+offset_top = 85.0
+offset_right = 257.0
+offset_bottom = 108.0
+theme_override_colors/font_color = Color(0.299712, 0.000330394, 0.38881, 1)
+theme_override_fonts/font = ExtResource("1_7kxup")
+theme_override_font_sizes/font_size = 17
+text = "Sem comida"

@@ -8,6 +8,7 @@ extends CharacterBody2D
 
 signal andou
 signal alimenta(quem, onde)
+signal pegoucomida
 
 
 func _ready():
@@ -69,6 +70,7 @@ func _physics_process(_delta):
 			
 			if tile_data.get_custom_data("comida"):
 				comcomida = true
+				pegoucomida.emit()
 				print("comida!!")
 				
 			elif tile_data.get_custom_data("planta"):

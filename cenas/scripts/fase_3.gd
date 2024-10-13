@@ -2,6 +2,8 @@ extends Node2D
 
 @onready var tagpassos = "Ui/timer"
 @onready var tagplantas = "Ui/plantascomeram"
+@onready var tagtotalplantas = "Ui/totalplatas"
+@onready var tagcomcomida = "Ui/comcomida"
 @onready var tilemap = self.get_parent().get_node("TileMap")
 @onready var passos: int = 0
 @onready var plata_al: int = 0
@@ -14,6 +16,7 @@ signal comeu(onde)
 func _ready():
 	if not $Ui.visible:
 		$Ui.show()
+	get_node(tagtotalplantas).text = "Total de plantas: " + str(total_plantas)
 	pass
 
 
@@ -47,3 +50,7 @@ func _on_timer_timeout():
 	print("perdeu mano")
 	pass # Replace with function body.
 
+
+
+func _on_jogador_pegoucomida():
+	get_node(tagcomcomida).text = "Com comida"
