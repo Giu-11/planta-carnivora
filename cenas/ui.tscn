@@ -1,60 +1,107 @@
-[gd_scene load_steps=2 format=3 uid="uid://dq0xxvv3ui1o1"]
+[gd_scene load_steps=8 format=3 uid="uid://dq0xxvv3ui1o1"]
 
 [ext_resource type="FontFile" uid="uid://br4qd7xyktkom" path="res://assets/fonts/PixelifySans-Regular.ttf" id="1_7kxup"]
+[ext_resource type="Script" path="res://cenas/ui.gd" id="1_ugqpj"]
+[ext_resource type="Texture2D" uid="uid://bwqp6cjdnkhbd" path="res://assets/icons_ui/relogio.png" id="2_n6eus"]
+[ext_resource type="Texture2D" uid="uid://y85mpxdddpr" path="res://assets/icons_ui/casinha.png" id="3_66gj6"]
+[ext_resource type="Texture2D" uid="uid://bqhoot2ojmjmy" path="res://assets/icons_ui/comida_planta.png" id="3_g25v6"]
+[ext_resource type="Texture2D" uid="uid://dt5odo5hjry72" path="res://assets/icons_ui/planta.png" id="4_evuov"]
+[ext_resource type="Texture2D" uid="uid://cmbj158e6b3eg" path="res://assets/icons_ui/plantaAlimentada.png" id="5_s7efm"]
 
 [node name="Ui" type="CanvasLayer"]
+script = ExtResource("1_ugqpj")
 
 [node name="ColorRect2" type="ColorRect" parent="."]
-offset_left = 3.0
-offset_top = 3.0
-offset_right = 261.0
-offset_bottom = 118.0
+offset_left = 885.0
+offset_top = 8.0
+offset_right = 1143.0
+offset_bottom = 123.0
 color = Color(0.21, 0.1848, 0.1848, 1)
+metadata/_edit_lock_ = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_left = 8.0
-offset_top = 8.0
-offset_right = 256.0
-offset_bottom = 113.0
+offset_left = 890.0
+offset_top = 13.0
+offset_right = 1138.0
+offset_bottom = 118.0
 color = Color(0.78, 0.74464, 0.6552, 1)
 metadata/_edit_lock_ = true
 
-[node name="timer" type="Label" parent="."]
-offset_left = 16.0
-offset_top = 16.0
-offset_right = 240.0
-offset_bottom = 39.0
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 893.0
+offset_top = 13.0
+offset_right = 1137.0
+offset_bottom = 118.0
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Relogio" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_n6eus")
+expand_mode = 2
+
+[node name="timer" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_7kxup")
 theme_override_font_sizes/font_size = 17
-text = "Contagem de passos vai aqui"
+text = "haah tempo pá"
 
-[node name="plantascomeram" type="Label" parent="."]
-offset_left = 16.0
-offset_top = 42.0
-offset_right = 249.0
-offset_bottom = 65.0
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="ComidaPlanta" type="TextureRect" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("3_g25v6")
+expand_mode = 2
+
+[node name="comcomida" type="Label" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
 theme_override_colors/font_color = Color(0.299712, 0.000330394, 0.38881, 1)
 theme_override_fonts/font = ExtResource("1_7kxup")
 theme_override_font_sizes/font_size = 17
-text = "Plantas alimentadas: 0"
+text = "Sem comida"
 
-[node name="totalplatas" type="Label" parent="."]
-offset_left = 15.0
-offset_top = 65.0
-offset_right = 257.0
-offset_bottom = 88.0
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Planta" type="TextureRect" parent="VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+texture = ExtResource("4_evuov")
+expand_mode = 3
+
+[node name="totalplatas" type="Label" parent="VBoxContainer/HBoxContainer3"]
+layout_mode = 2
 theme_override_colors/font_color = Color(0.299712, 0.000330394, 0.38881, 1)
 theme_override_fonts/font = ExtResource("1_7kxup")
 theme_override_font_sizes/font_size = 17
 text = "Total de plantas: ?"
 
-[node name="comcomida" type="Label" parent="."]
-offset_left = 15.0
-offset_top = 85.0
-offset_right = 257.0
-offset_bottom = 108.0
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="PlantaAlimentada" type="TextureRect" parent="VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+texture = ExtResource("5_s7efm")
+expand_mode = 3
+
+[node name="plantascomeram" type="Label" parent="VBoxContainer/HBoxContainer4"]
+layout_mode = 2
 theme_override_colors/font_color = Color(0.299712, 0.000330394, 0.38881, 1)
 theme_override_fonts/font = ExtResource("1_7kxup")
 theme_override_font_sizes/font_size = 17
-text = "Sem comida"
+text = "Plantas alimentadas: 0"
+
+[node name="casinha" type="Button" parent="."]
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 74.0
+offset_bottom = 69.0
+icon = ExtResource("3_66gj6")
+icon_alignment = 1
+expand_icon = true
+metadata/_edit_lock_ = true
+
+[connection signal="pressed" from="casinha" to="." method="_on_casinha_pressed"]

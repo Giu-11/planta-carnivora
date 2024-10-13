@@ -25,3 +25,7 @@ func _on_fase_3_pressed():
 
 func _on_fase_4_pressed():
 	get_tree().change_scene_to_file("res://cenas/fases/fase_4.tscn")
+
+
+func _on_casinha_pressed():
+	get_tree().change_scene_to_file("res://inicio.tscn")

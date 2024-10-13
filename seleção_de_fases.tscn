@@ -18,7 +18,7 @@ script = ExtResource("1_cm873")
 [node name="Predio" type="Sprite2D" parent="."]
 scale = Vector2(6, 6)
 texture = ExtResource("1_t8ha1")
-offset = Vector2(96, 56)
+offset = Vector2(125, 56)
 metadata/_edit_lock_ = true
 
 [node name="fase1" type="TextureButton" parent="."]
@@ -61,7 +61,7 @@ texture_hover = ExtResource("9_mw631")
 stretch_mode = 0
 metadata/_edit_lock_ = true
 
-[node name="Button" type="Button" parent="."]
+[node name="casinha" type="Button" parent="."]
 offset_left = 5.0
 offset_top = 12.0
 offset_right = 74.0
@@ -75,3 +75,4 @@ metadata/_edit_lock_ = true
 [connection signal="pressed" from="fase2" to="." method="_on_fase_2_pressed"]
 [connection signal="pressed" from="fase3" to="." method="_on_fase_3_pressed"]
 [connection signal="pressed" from="fase4" to="." method="_on_fase_4_pressed"]
+[connection signal="pressed" from="casinha" to="." method="_on_casinha_pressed"]

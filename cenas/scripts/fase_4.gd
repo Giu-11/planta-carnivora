@@ -1,9 +1,9 @@
 extends Node2D
 
-@onready var tagpassos = "Ui/timer"
-@onready var tagplantas = "Ui/plantascomeram"
-@onready var tagtotalplantas = "Ui/totalplatas"
-@onready var tagcomcomida = "Ui/comcomida"
+@onready var tagpassos = "Ui/VBoxContainer/HBoxContainer/timer"
+@onready var tagplantas = "Ui/VBoxContainer/HBoxContainer4/plantascomeram"
+@onready var tagtotalplantas = "Ui/VBoxContainer/HBoxContainer3/totalplatas"
+@onready var tagcomcomida = "Ui/VBoxContainer/HBoxContainer2/comcomida"
 @onready var tilemap = self.get_parent().get_node("TileMap")
 @onready var passos: int = 0
 @onready var plata_al: int = 0
