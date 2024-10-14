@@ -13,11 +13,12 @@ config_version=5
 config/name="Planta Carnívora"
 run/main_scene="res://cenas/inicio.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
-config/icon="res://assets/icons_ui/planta.png"
-config/windows_native_icon="res://assets/icons_ui/icones/planta.ico"
+config/icon="res://assets/icons_ui/icones/plantagrande.png"
+config/windows_native_icon="res://assets/icons_ui/icones/plantagrande.ico"
 
 [display]
 
+window/size/mode=4
 window/size/resizable=false
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"

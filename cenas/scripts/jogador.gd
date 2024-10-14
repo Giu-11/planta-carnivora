@@ -8,7 +8,6 @@ extends CharacterBody2D
 
 var acabou = false
 
-signal andou
 signal alimenta(quem, onde)
 signal pegoucomida
 
@@ -42,7 +41,6 @@ func _physics_process(_delta):
 			return
 		
 		update_animation(direcao)
-		andou.emit()
 		
 		raycast.target_position = direcao * 16
 		raycast.force_raycast_update()

@@ -55,5 +55,4 @@ metadata/_edit_lock_ = true
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="prox_fase" from="Ui" to="." method="_on_ui_prox_fase"]
 [connection signal="alimenta" from="jogador" to="." method="_on_jogador_alimenta"]
-[connection signal="andou" from="jogador" to="." method="_on_jogador_andou"]
 [connection signal="pegoucomida" from="jogador" to="." method="_on_jogador_pegoucomida"]

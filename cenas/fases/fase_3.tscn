@@ -54,6 +54,5 @@ metadata/_edit_lock_ = true
 [connection signal="comeu" from="." to="planta" method="_on_jogo_comeu"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="alimenta" from="jogador" to="." method="_on_jogador_alimenta"]
-[connection signal="andou" from="jogador" to="." method="_on_jogador_andou"]
 [connection signal="pegoucomida" from="jogador" to="." method="_on_jogador_pegoucomida"]
 [connection signal="prox_fase" from="Ui" to="." method="_on_ui_prox_fase"]

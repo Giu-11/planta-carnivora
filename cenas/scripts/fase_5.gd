@@ -9,7 +9,7 @@ extends Node2D
 @onready var passos: int = 0
 @onready var plata_al: int = 0
 
-const total_plantas = 2
+const total_plantas = 4
 
 signal comeu(onde)
 signal acabou
@@ -49,7 +49,7 @@ func _on_jogador_alimenta(planta, onde):
 			acabou.emit()
 			$Timer.stop()
 			get_node(telaFim + "/Label").text = "Você Ganhou :]!!!"
-			get_node(telaFim + "/HBoxContainer/prox").text = "  fase secreta  "
+			get_node(telaFim + "/HBoxContainer/prox").hide()
 			get_node(telaFim).show()
 
 
@@ -57,7 +57,7 @@ func _on_timer_timeout():
 	print("perdeu mano")
 	acabou.emit()
 	get_node(telaFim + "/Label").text = "Você Perdeu :["
-	get_node(telaFim + "/HBoxContainer/prox").hide()
+	get_node(telaFim + "/HBoxContainer/prox").text = "repetir fase"
 	get_node(telaFim).show()
 
 
