@@ -60,7 +60,7 @@ func _on_timer_timeout():
 	
 
 func _on_jogador_pegoucomida():
-	get_node(tagcomcomida).text = "Com comida"
+	get_node(tagcomcomida).text = "Com comida!!"
 
 
 func _on_ui_prox_fase():

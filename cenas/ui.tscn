@@ -63,7 +63,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.299712, 0.000330394, 0.38881, 1)
 theme_override_fonts/font = ExtResource("1_7kxup")
 theme_override_font_sizes/font_size = 17
-text = "Sem comida"
+text = "Sem comida X"
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
