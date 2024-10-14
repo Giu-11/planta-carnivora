@@ -1,74 +1,51 @@
-[gd_scene load_steps=4 format=3 uid="uid://bahbjpbf3yhte"]
+[gd_scene load_steps=5 format=3 uid="uid://c8q6krudisy5"]
 
-[ext_resource type="Texture2D" uid="uid://y85mpxdddpr" path="res://assets/icons_ui/casinha.png" id="1_qeh23"]
-[ext_resource type="Texture2D" uid="uid://c78b3i152em0u" path="res://assets/icons_ui/botao.png" id="2_862so"]
-[ext_resource type="Texture2D" uid="uid://bbe1steh5rv3k" path="res://assets/icons_ui/botaoc.png" id="3_8kqn1"]
+[ext_resource type="Script" path="res://cenas/fim_fase.gd" id="1_eib02"]
+[ext_resource type="Texture2D" uid="uid://b7c1k81p6jrk" path="res://assets/icons_ui/quadrado.png" id="2_sdekv"]
+[ext_resource type="FontFile" uid="uid://cehp3tuoxwfo2" path="res://assets/fonts/PixelifySans-Medium.ttf" id="3_00j7s"]
+[ext_resource type="FontFile" uid="uid://br4qd7xyktkom" path="res://assets/fonts/PixelifySans-Regular.ttf" id="4_rbt4g"]
 
-[node name="fim_fase" type="ColorRect"]
-custom_minimum_size = Vector2(750, 500)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.732587, 0.413616, 0.615052, 1)
-metadata/_edit_lock_ = true
+[node name="fimFase" type="Node2D"]
+script = ExtResource("1_eib02")
 
-[node name="Button" type="Button" parent="."]
-layout_mode = 0
-offset_left = 13.0
-offset_top = 13.0
-offset_right = 53.0
-offset_bottom = 53.0
-icon = ExtResource("1_qeh23")
-flat = true
+[node name="Quadrado" type="Sprite2D" parent="."]
+position = Vector2(590, 319)
+scale = Vector2(7, 7)
+texture = ExtResource("2_sdekv")
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-metadata/_edit_lock_ = true
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
-custom_minimum_size = Vector2(450, 270)
-layout_mode = 2
-alignment = 1
-
-[node name="resultado" type="Label" parent="CenterContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 40
-text = "sla, vc ganhou?"
+[node name="Label" type="Label" parent="."]
+offset_left = 320.0
+offset_top = 218.0
+offset_right = 859.0
+offset_bottom = 314.0
+theme_override_fonts/font = ExtResource("3_00j7s")
+theme_override_font_sizes/font_size = 50
+text = "Você alguma coisa !!!!!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
-custom_minimum_size = Vector2(100, 20)
-layout_mode = 2
-size_flags_stretch_ratio = 0.0
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_left = 322.0
+offset_top = 349.0
+offset_right = 861.0
+offset_bottom = 445.0
+theme_override_constants/separation = 30
 alignment = 1
 
-[node name="Button" type="TextureButton" parent="CenterContainer/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(125, 50)
+[node name="sele" type="Button" parent="HBoxContainer"]
 layout_mode = 2
-texture_normal = ExtResource("2_862so")
-texture_pressed = ExtResource("3_8kqn1")
-texture_hover = ExtResource("3_8kqn1")
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_rbt4g")
+theme_override_font_sizes/font_size = 27
+text = "  selecionar fase  "
 
-[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(20, 20)
+[node name="prox" type="Button" parent="HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_stretch_ratio = 0.0
+theme_override_fonts/font = ExtResource("4_rbt4g")
+theme_override_font_sizes/font_size = 27
+text = "    próxima fase    "
 
-[node name="Button2" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(125, 45)
-layout_mode = 2
-theme_override_font_sizes/font_size = 25
-text = "botão 1"
+[connection signal="pressed" from="HBoxContainer/sele" to="." method="_on_sele_pressed"]
+[connection signal="pressed" from="HBoxContainer/prox" to="." method="_on_prox_pressed"]

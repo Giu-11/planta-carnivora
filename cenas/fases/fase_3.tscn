@@ -50,8 +50,10 @@ layer_2/z_index = -5
 layer_2/tile_data = PackedInt32Array(262146, 0, 3, 262147, 65536, 3, 589829, 0, 3, 589830, 65536, 3, 327686, 65536, 9, 327687, 0, 9, 196610, 0, 7, 458755, 0, 7, 524295, 65536, 7, 524296, 65536, 7, 458754, 65536, 7, 131076, 65536, 7, 131082, 65536, 7, 327693, 65536, 7)
 metadata/_edit_lock_ = true
 
+[connection signal="acabou" from="." to="jogador" method="_on_fase_acabou"]
 [connection signal="comeu" from="." to="planta" method="_on_jogo_comeu"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="alimenta" from="jogador" to="." method="_on_jogador_alimenta"]
 [connection signal="andou" from="jogador" to="." method="_on_jogador_andou"]
 [connection signal="pegoucomida" from="jogador" to="." method="_on_jogador_pegoucomida"]
+[connection signal="prox_fase" from="Ui" to="." method="_on_ui_prox_fase"]

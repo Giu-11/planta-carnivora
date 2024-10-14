@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dq0xxvv3ui1o1"]
+[gd_scene load_steps=9 format=3 uid="uid://dq0xxvv3ui1o1"]
 
 [ext_resource type="FontFile" uid="uid://br4qd7xyktkom" path="res://assets/fonts/PixelifySans-Regular.ttf" id="1_7kxup"]
 [ext_resource type="Script" path="res://cenas/ui.gd" id="1_ugqpj"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bqhoot2ojmjmy" path="res://assets/icons_ui/comida_planta.png" id="3_g25v6"]
 [ext_resource type="Texture2D" uid="uid://dt5odo5hjry72" path="res://assets/icons_ui/planta.png" id="4_evuov"]
 [ext_resource type="Texture2D" uid="uid://cmbj158e6b3eg" path="res://assets/icons_ui/plantaAlimentada.png" id="5_s7efm"]
+[ext_resource type="PackedScene" uid="uid://c8q6krudisy5" path="res://cenas/fim_fase.tscn" id="8_e10lh"]
 
 [node name="Ui" type="CanvasLayer"]
 script = ExtResource("1_ugqpj")
@@ -16,7 +17,7 @@ offset_left = 885.0
 offset_top = 8.0
 offset_right = 1143.0
 offset_bottom = 123.0
-color = Color(0.21, 0.1848, 0.1848, 1)
+color = Color(0.4, 0.223529, 0.192157, 1)
 metadata/_edit_lock_ = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -24,7 +25,7 @@ offset_left = 890.0
 offset_top = 13.0
 offset_right = 1138.0
 offset_bottom = 118.0
-color = Color(0.78, 0.74464, 0.6552, 1)
+color = Color(0.933333, 0.764706, 0.603922, 1)
 metadata/_edit_lock_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
@@ -104,4 +105,8 @@ icon_alignment = 1
 expand_icon = true
 metadata/_edit_lock_ = true
 
+[node name="fimFase" parent="." instance=ExtResource("8_e10lh")]
+visible = false
+
 [connection signal="pressed" from="casinha" to="." method="_on_casinha_pressed"]
+[connection signal="prox_fase" from="fimFase" to="." method="_on_fim_fase_prox_fase"]

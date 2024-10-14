@@ -4,6 +4,7 @@ extends Node2D
 @onready var tagplantas = "Ui/VBoxContainer/HBoxContainer4/plantascomeram"
 @onready var tagtotalplantas = "Ui/VBoxContainer/HBoxContainer3/totalplatas"
 @onready var tagcomcomida = "Ui/VBoxContainer/HBoxContainer2/comcomida"
+@onready var telaFim = "Ui/fimFase"
 @onready var tilemap = self.get_parent().get_node("TileMap")
 @onready var passos: int = 0
 @onready var plata_al: int = 0
@@ -11,6 +12,7 @@ extends Node2D
 const total_plantas = 2
 
 signal comeu(onde)
+signal acabou
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -44,12 +46,19 @@ func _on_jogador_alimenta(planta, onde):
 		
 		if plata_al == total_plantas:
 			print("ganhou mano :)")
-			#aqui vc coloca a tela de ganhou
+			acabou.emit()
+			$Timer.stop()
+			get_node(telaFim + "/Label").text = "Você Ganhou :]!!!"
+			get_node(telaFim + "/HBoxContainer/prox").hide()
+			get_node(telaFim).show()
 
 
 func _on_timer_timeout():
 	print("perdeu mano")
-	pass # Replace with function body.
+	acabou.emit()
+	get_node(telaFim + "/Label").text = "Você Perdeu :["
+	get_node(telaFim + "/HBoxContainer/prox").hide()
+	get_node(telaFim).show()
 
 
 func _on_jogador_pegoucomida():

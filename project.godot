@@ -10,10 +10,11 @@ config_version=5
 
 [application]
 
-config/name="plata carnivora(temp)"
-run/main_scene="res://cenas/jogo.tscn"
+config/name="Planta Carnívora"
+run/main_scene="res://cenas/inicio.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://assets/icons_ui/planta.png"
+config/windows_native_icon="res://assets/icons_ui/icones/planta.ico"
 
 [display]
 

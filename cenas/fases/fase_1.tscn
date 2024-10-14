@@ -50,8 +50,10 @@ editor_draw_limits = true
 editor_draw_drag_margin = true
 metadata/_edit_lock_ = true
 
+[connection signal="acabou" from="." to="jogador" method="_on_fase_acabou"]
 [connection signal="comeu" from="." to="planta" method="_on_jogo_comeu"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="prox_fase" from="Ui" to="." method="_on_ui_prox_fase"]
 [connection signal="alimenta" from="jogador" to="." method="_on_jogador_alimenta"]
 [connection signal="andou" from="jogador" to="." method="_on_jogador_andou"]
 [connection signal="pegoucomida" from="jogador" to="." method="_on_jogador_pegoucomida"]
